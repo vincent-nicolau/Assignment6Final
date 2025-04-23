@@ -1,7 +1,6 @@
 document.getElementById("button").addEventListener("click", function () {
     const input = document.getElementById("sentence").value.trim();
     console.log("sentence after trim:", input);
-    const all = [];
     const nums = [];
     const words = [];
     let word = "";
@@ -19,9 +18,6 @@ document.getElementById("button").addEventListener("click", function () {
             word += char;
         }
     });
-    console.log("all words and nums", input.split(/\s+/))
-    console.log("nums b4 sort", nums);
-    console.log("words b4 sort", words);
     if (word !== "") {
         if (!isNaN(word) && !word.includes(",")) {
             nums.push(parseFloat(word));
@@ -29,6 +25,8 @@ document.getElementById("button").addEventListener("click", function () {
             words.push(word);
         }
     }
+    console.log("nums b4 sort", nums);
+    console.log("words b4 sort", words);
     const sortedNums = nums.sort((a, b) => a - b);
     const sortedWords = words.sort((a, b) => a.localeCompare(b));
     const nwList = document.querySelector(".nw ul");
